@@ -18,8 +18,8 @@ const middlewares = (app) => {
 }
 
 const routes = (app) =>{
-    app.use("/socialMedia/v1/auth", authRoutes)
-    app.use("/socialMedia/v1/user", userRoutes)
+    app.use("/socialmedia/v1/auth", authRoutes)
+    app.use("/socialmedia/v1/user", userRoutes)
 }
 
 const ConnectDB = async () =>{
