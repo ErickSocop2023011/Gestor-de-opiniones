@@ -1,4 +1,5 @@
 import User from '../src/user/user.model.js'
+import Category from '../src/category/category.model.js'
 import {hash} from 'argon2'
 
 export const createDefaultAdmin = async () => {
@@ -30,10 +31,10 @@ export const createDefaultAdmin = async () => {
     }
 }
 
-export const createDefaultCategory = async (params) => {
+export const createDefaultCategory = async () => {
     try {
-        const name = "anything"
-        const description = "anything"
+        const name = "default"
+        const description = "This is the default category"
 
         const existingCategory = await Category.findOne({ name })
 
