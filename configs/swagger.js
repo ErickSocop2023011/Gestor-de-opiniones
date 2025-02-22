@@ -9,13 +9,13 @@ const options ={
             version: "1.0.0",
             description: "API para un gestor de opiniones",
             contact:{
-                name: "José Figueroa",
-                email: "jfigueroa-2023015@kinal.edu.gt"
+                name: "Erick Socop",
+                email: "esocop-2023011@kinal.edu.gt"
             }
         },
         servers:[
             {
-                url: "http://127.0.0.1:3001/socialMedia/v1"
+                url: "http://127.0.0.1:3001/socialmedia/v1"
             }
         ]
     },
