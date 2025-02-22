@@ -4,64 +4,6 @@ import fs from "fs/promises"
 import {join, dirname} from "path"
 import { fileURLToPath } from "url"
 
-/**
- * @swagger
- * components:
- *   schemas:
- *     User:
- *       type: object
- *       properties:
- *         name:
- *           type: string
- *         surname:
- *           type: string
- *         username:
- *           type: string
- *         email:
- *           type: string
- *         password:
- *           type: string
- *         profilePicture:
- *           type: string
- *         role:
- *           type: string
- *           enum: ['ADMIN_ROLE', 'USER_ROLE']
- *         status:
- *           type: boolean
- */
-
-/**
- * @swagger
- * tags:
- *   name: User
- *   description: User management
- */
-
-/**
- * @swagger
- * /socialMedia/v1/user/updatePassword:
- *   patch:
- *     summary: Update user password
- *     tags: [User]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               password:
- *                 type: string
- *               newPassword:
- *                 type: string
- *     responses:
- *       200:
- *         description: Updated password
- *       400:
- *         description: Old password does not match or new password is the same as the old one
- *       500:
- *         description: Error updating password
- */
 export const updatePassword = async (req, res) => {
     try{
         const { usuario } = req
@@ -107,35 +49,6 @@ export const updatePassword = async (req, res) => {
     }
 }
 
-/**
- * @swagger
- * /socialMedia/v1/user/updateUser:
- *   put:
- *     summary: Update user information
- *     tags: [User]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               name:
- *                 type: string
- *               surname:
- *                 type: string
- *               username:
- *                 type: string
- *               email:
- *                 type: string
- *     responses:
- *       200:
- *         description: Updated user
- *       403:
- *         description: You do not have permission to assign yourself as an administrator
- *       500:
- *         description: Error updating user
- */
 export const updateUser = async (req, res) => {
     try {
         const { usuario } = req;
@@ -163,30 +76,6 @@ export const updateUser = async (req, res) => {
     }
 }
 
-/**
- * @swagger
- * /socialMedia/v1/user/updateProfPic:
- *   patch:
- *     summary: Update user profile picture
- *     tags: [User]
- *     requestBody:
- *       required: true
- *       content:
- *         multipart/form-data:
- *           schema:
- *             type: object
- *             properties:
- *               newProfilePic:
- *                 type: string
- *                 format: binary
- *     responses:
- *       200:
- *         description: Profile picture updated
- *       400:
- *         description: No file was uploaded
- *       500:
- *         description: Error updating profile picture
- */
 export const updateProfilePicture = async (req, res) => {
     const __dirname = dirname(fileURLToPath(import.meta.url))
     try{
