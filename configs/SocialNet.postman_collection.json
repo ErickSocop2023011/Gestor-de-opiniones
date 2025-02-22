@@ -203,52 +203,254 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I4ODU5OGJmMTA2YmZmNjFiOTUxNWEiLCJpYXQiOjE3NDAxNTU5NDMsImV4cCI6MTc0MDE1OTU0M30.wxAf_V7J3PwQlouNTPVE1Z1pmMZAFKwVkKw-Pzo9tB4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Erick\",\r\n    \"surname\":\"Socop\",\r\n    \"username\":\"esocop2\",\r\n    \"email\":\"esocop-2023011@kinal.edu.gt\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/socialMedia/v1/user/updateUser",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"socialMedia",
+								"v1",
+								"user",
+								"updateUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Admin",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			]
 		},
 		{
-			"name": "Update User",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I4ODU5OGJmMTA2YmZmNjFiOTUxNWEiLCJpYXQiOjE3NDAxNTU5NDMsImV4cCI6MTc0MDE1OTU0M30.wxAf_V7J3PwQlouNTPVE1Z1pmMZAFKwVkKw-Pzo9tB4",
-							"type": "string"
+			"name": "Category",
+			"item": [
+				{
+					"name": "Add Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I5MTBkMzY3MDk4NWQzY2IyODdjZjgiLCJpYXQiOjE3NDAxODI3MjUsImV4cCI6MTc0MDE4NjMyNX0.xWWkWxEq62nKjjBwFfAayNTB0PczQxdIkgwBVXZ60G8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Humor\",\r\n    \"description\":\"Categoría en base a humor\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/socialmedia/v1/category/addcategory",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"socialmedia",
+								"v1",
+								"category",
+								"addcategory"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Erick\",\r\n    \"surname\":\"Socop\",\r\n    \"username\":\"esocop2\",\r\n    \"email\":\"esocop-2023011@kinal.edu.gt\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Update Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I5MTI1Mjc4OTY1OWVjZDEwYmYzOWMiLCJpYXQiOjE3NDAxOTgyODUsImV4cCI6MTc0MDIwMTg4NX0.UcM729PgitpdOTT40zXLQh0GVtJOLRLUDwfrZYpqiCk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Terror\",\r\n    \"description\":\"Categoría en base al teror\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/socialmedia/v1/category/updtcategory/67b9158393055bc675da5b72",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"socialmedia",
+								"v1",
+								"category",
+								"updtcategory",
+								"67b9158393055bc675da5b72"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://127.0.0.1:3001/socialMedia/v1/user/updateUser",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3001",
-					"path": [
-						"socialMedia",
-						"v1",
-						"user",
-						"updateUser"
-					]
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Add Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I5MTI1Mjc4OTY1OWVjZDEwYmYzOWMiLCJpYXQiOjE3NDAyMDA1NjgsImV4cCI6MTc0MDIwNDE2OH0.h7pc_LEI28Ik9v8_EgDmNWw0YVK58lidpv0RMk1QX2U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Hola",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Hola",
+									"type": "text"
+								},
+								{
+									"key": "creator",
+									"value": "67b91252789659ecd10bf39c",
+									"type": "text"
+								},
+								{
+									"key": "postPicture",
+									"type": "file",
+									"src": "/C:/Users/ersc2/Pictures/Wallpaper's/Cloudcover.jpg"
+								},
+								{
+									"key": "category",
+									"value": "67b9158393055bc675da5b72",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/socialmedia/v1/post/addpost",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"socialmedia",
+								"v1",
+								"post",
+								"addpost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Post",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete post",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

@@ -2,6 +2,7 @@ import express from "express"
 import cors from "cors"
 import helmet from "helmet"
 import morgan from "morgan"
+import { swaggerDocs, swaggerUi } from "./swagger.js";
 import { dbConnection } from "./mongo.js"
 import authRoutes from "../src/auth/auth.routes.js"
 import userRoutes from "../src/user/user.routes.js"
@@ -20,6 +21,7 @@ const middlewares = (app) => {
 }
 
 const routes = (app) =>{
+    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
     app.use("/socialmedia/v1/auth", authRoutes)
     app.use("/socialmedia/v1/user", userRoutes)
     app.use("/socialmedia/v1/category", categoryRoutes)
