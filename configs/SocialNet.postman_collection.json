@@ -1,0 +1,254 @@
+{
+	"info": {
+		"_postman_id": "e311b6c3-b71c-44d9-a3ae-03a8d61e4c74",
+		"name": "SocialNet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37667709"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Erick",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Socop",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "esocop",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "esocop-2023011@kinal.edu.gt",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Kin4l2311@o6",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/ersc2/Pictures/Wallpaper's/Cloudcover.jpg"
+								},
+								{
+									"key": "role",
+									"value": "USER_ROLE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/socialMedia/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"socialMedia",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"jh\",\r\n    \"password\":\"Jh123456#\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/socialMedia/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"socialMedia",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I4ODU5OGJmMTA2YmZmNjFiOTUxNWEiLCJpYXQiOjE3NDAxNTE3MTMsImV4cCI6MTc0MDE1NTMxM30.zjTAtSlrbClp3WmwHw1r1R0ol8VeEYOLzPiNo9MC7gs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"Jh123456#\",\r\n    \"newPassword\":\"Kin4l2311@o6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/socialMedia/v1/user/updatePassword",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"socialMedia",
+								"v1",
+								"user",
+								"updatePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update ProfPic",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I4ODU5OGJmMTA2YmZmNjFiOTUxNWEiLCJpYXQiOjE3NDAxNTU5NDMsImV4cCI6MTc0MDE1OTU0M30.wxAf_V7J3PwQlouNTPVE1Z1pmMZAFKwVkKw-Pzo9tB4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "newProfilePic",
+									"type": "file",
+									"src": "/C:/Users/ersc2/Pictures/Wallpaper's/batman.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/socialMedia/v1/user/updateProfPic",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"socialMedia",
+								"v1",
+								"user",
+								"updateProfPic"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I4ODU5OGJmMTA2YmZmNjFiOTUxNWEiLCJpYXQiOjE3NDAxNTU5NDMsImV4cCI6MTc0MDE1OTU0M30.wxAf_V7J3PwQlouNTPVE1Z1pmMZAFKwVkKw-Pzo9tB4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Erick\",\r\n    \"surname\":\"Socop\",\r\n    \"username\":\"esocop2\",\r\n    \"email\":\"esocop-2023011@kinal.edu.gt\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3001/socialMedia/v1/user/updateUser",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"socialMedia",
+						"v1",
+						"user",
+						"updateUser"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
