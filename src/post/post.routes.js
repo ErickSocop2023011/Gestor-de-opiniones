@@ -1,6 +1,7 @@
-import { addCategoryValidator, updateCategoryValidator, deleteCategoryValidator} from "../middlewares/category-validator.js";
-import { createCategory, updateCategory,deleteCategory } from "./category.controller.js";
 import { Router } from "express";
+import { createPost, updatePost, deletePost } from "./post.controller.js";
+import { createPostValidator, updtPostValidator, deletePostValidator } from "../middlewares/post-validator.js";
+import { uploadPostImage } from "../middlewares/multer-uploads.js";
 import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 
@@ -20,7 +21,7 @@ const swaggerOptions = {
             }
         ]
     },
-    apis: ["./src/category/category.routes.js"]
+    apis: ["./src/post/post.routes.js"]
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
@@ -28,44 +29,51 @@ router.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 /**
  * @swagger
- * /socialmedia/v1/category/addcategory:
+ * /socialmedia/v1/post/addpost:
  *   post:
- *     summary: Create a new category
- *     tags: [Category]
+ *     summary: Create a new post
+ *     tags: [Post]
  *     requestBody:
  *       required: true
  *       content:
- *         application/json:
+ *         multipart/form-data:
  *           schema:
  *             type: object
  *             properties:
- *               name:
+ *               postPicture:
  *                 type: string
- *               description:
+ *                 format: binary
+ *               title:
+ *                 type: string
+ *               content:
+ *                 type: string
+ *               creator:
+ *                 type: string
+ *               category:
  *                 type: string
  *     responses:
  *       200:
- *         description: Category created
+ *         description: Post created
  *       400:
  *         description: Validation error
  *       500:
- *         description: Error creating category
+ *         description: Error creating post
  */
-router.post("/addcategory", addCategoryValidator, createCategory);
+router.post("/addpost", uploadPostImage.single("postPicture"), createPostValidator, createPost);
 
 /**
  * @swagger
- * /socialmedia/v1/category/updtcategory/{cid}:
+ * /socialmedia/v1/post/updtpost/{pid}:
  *   put:
- *     summary: Update an existing category
- *     tags: [Category]
+ *     summary: Update an existing post
+ *     tags: [Post]
  *     parameters:
  *       - in: path
- *         name: cid
+ *         name: pid
  *         schema:
  *           type: string
  *         required: true
- *         description: Category ID
+ *         description: Post ID
  *     requestBody:
  *       required: true
  *       content:
@@ -73,41 +81,43 @@ router.post("/addcategory", addCategoryValidator, createCategory);
  *           schema:
  *             type: object
  *             properties:
- *               name:
+ *               title:
  *                 type: string
- *               description:
+ *               content:
+ *                 type: string
+ *               category:
  *                 type: string
  *     responses:
  *       200:
- *         description: Category updated
+ *         description: Post updated
  *       400:
  *         description: Validation error
  *       500:
- *         description: Error updating category
+ *         description: Error updating post
  */
-router.put("/updtcategory/:cid", updateCategoryValidator, updateCategory);
+router.put("/updtpost/:pid", updtPostValidator, updatePost);
 
 /**
  * @swagger
- * /socialmedia/v1/category/deletecategory/{cid}:
+ * /socialmedia/v1/post/deletepost/{pid}:
  *   delete:
- *     summary: Delete a category
- *     tags: [Category]
+ *     summary: Delete a post
+ *     tags: [Post]
  *     parameters:
  *       - in: path
- *         name: cid
+ *         name: pid
  *         schema:
  *           type: string
  *         required: true
- *         description: Category ID
+ *         description: Post ID
  *     responses:
  *       200:
- *         description: Category deleted
+ *         description: Post deleted
  *       400:
  *         description: Validation error
  *       500:
- *         description: Error deleting category
+ *         description: Error deleting post
  */
-router.delete("/deletecategory/:cid", deleteCategoryValidator, deleteCategory);
+router.delete("/deletepost/:pid", deletePostValidator, deletePost);
 
 export default router;

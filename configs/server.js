@@ -6,6 +6,7 @@ import { dbConnection } from "./mongo.js"
 import authRoutes from "../src/auth/auth.routes.js"
 import userRoutes from "../src/user/user.routes.js"
 import categoryRoutes from "../src/category/category.routes.js"
+import postRoutes from "../src/post/post.routes.js"
 import apiLimiter from "../src/middlewares/rate-limit-validator.js"
 import {createDefaultAdmin , createDefaultCategory} from "./default-data.js"
 
@@ -22,6 +23,7 @@ const routes = (app) =>{
     app.use("/socialmedia/v1/auth", authRoutes)
     app.use("/socialmedia/v1/user", userRoutes)
     app.use("/socialmedia/v1/category", categoryRoutes)
+    app.use("/socialmedia/v1/post", postRoutes)
 }
 
 const ConnectDB = async () =>{
